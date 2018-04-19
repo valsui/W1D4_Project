@@ -76,9 +76,9 @@ class SudokuGame
     val.is_a?(Integer) && val.between?(0, 9)
   end
   
-  def check_rows(pos, val)
-    
-  end
+  # def check_rows(pos, val)
+  # 
+  # end
 
 
   

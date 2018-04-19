@@ -1,6 +1,7 @@
 require_relative "board"
 
 class SudokuGame
+  attr_reader :board
   def self.from_file(filename)
     board = Board.from_file(filename)
     self.new(board)
@@ -12,7 +13,7 @@ class SudokuGame
 
   def get_pos
     pos = nil
-    raise "This is the easiest error you're gonna get, chief.  It only gets harder going forward.  Remove me (or comment me out), re-run the code to make sure it works, and go on to the next level"
+    # raise "This is the easiest error you're gonna get, chief.  It only gets harder going forward.  Remove me (or comment me out), re-run the code to make sure it works, and go on to the next level"
 
     until pos && valid_pos?(pos)
       puts "Please enter a position on the board (e.g., '3,4')"
@@ -72,14 +73,17 @@ class SudokuGame
   end
 
   def valid_val?(val)
-    val.is_a?(Integer) &&
-      val.between?(0, 9)
+    val.is_a?(Integer) && val.between?(0, 9)
+  end
+  
+  def check_rows(pos, val)
+    
   end
 
-  private
-  attr_reader :board
+
+  
 end
 
 
 game = SudokuGame.from_file("puzzles/sudoku1.txt")
-game.run
+# game.run
